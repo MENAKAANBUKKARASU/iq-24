@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="register.css">
+    <title>Registerpage</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <form id="form">
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">Registration form</h3>
+
+                <div class="inputBox">
+                    <span>Name :</span>
+                    <input type="text" required placeholder="name" name="name"/>
+                </div>
+                <div class="inputBox">
+                    <span>College :</span>
+                    <input type="text" required placeholder="college name" name="clg"/>
+                </div>
+                <div class="inputBox">
+                    <span>Email id :</span>
+                    <input type="email" required placeholder="email" name="email"/>
+                </div>
+                <div class="inputBox">
+                    <span>Department :</span>
+                    <input type="text" required placeholder="Department" name="dept"/>
+                </div>
+                <div class="inputBox">
+                    <span>Phone no :</span>
+                    <input type="text" required placeholder="Phone No" name="pnum" />
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">payment</h3>
+
+                <div class="inputBox">
+                    <span>Scan the QR code :</span>
+                    <img src="images/qr-img.png" alt="paymentqrcode">
+                </div>
+                <!-- <div class="inputBox">
+                    <span>Upload document :</span>
+                    <input type="file" accept="image/*" alt="document" placeholder="upload">
+                </div> -->
+                <div class="inputBox">
+                    <span>Transaction id :</span>
+                    <input type="text" required placeholder="Transaction ID" name="tid">
+                </div>
+
+            </div>
+    
+        </div>
+
+        <input type="submit" class="submit-btn" id="submit">
+
+    </form>
+
+    <script>
+        const form = document.querySelector("#form")
+        const submitButton = document.querySelector("#submit")
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsLe8HGGSJ_V49lPST8O3rC91Rte6ivbISZJI1rpv1LHYTT1VkBlDoS077tbjBbzQ/exec'
+    
+        form.addEventListener('submit', e => {
+        submitButton.disabled = true
+        e.preventDefault()
+        let requestBody = new FormData(form)
+        fetch(scriptURL, { method: 'POST', body: requestBody})
+        .then(response => {
+            console.log("success")
+            alert('Success!', response)
+            submitButton.disabled = false
+            window.location.href='index.html'
+        })
+        .catch(error => {
+            console.log("error")
+            alert('Error!', error.message)
+            submitButton.disabled = false
+        }
+        )
+        })
+    </script>
+</div>
+    
+</body>
+</html>
