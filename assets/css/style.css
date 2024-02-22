@@ -750,14 +750,17 @@ section {
 
 .about .icon-box {
   padding: 30px;
-  position: relative;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
-  transition: all 0.3s ease-in-out;
-  border-radius: 8px;
-  z-index: 1;
-
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    z-index: 1;
+    height: 100%; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .about img{
   width: 120px;
@@ -770,14 +773,15 @@ section {
 .about .icon-box::before {
   content: "";
   position: absolute;
-  background: white;
+  background: #f8cb39;
   right: 0;
   left: 0;
   bottom: 0;
   top: 100%;
   transition: all 0.3s;
   z-index: -1;
-}
+} 
+
 
 .about .icon-box:hover::before {
   background:  #f8cb39;
@@ -792,7 +796,7 @@ section {
 .about .icon i {
   font-size: 48px;
   line-height: 1;
-  color: #67b0d1;
+  color: #f8cb39;
   transition: all 0.3s ease-in-out;
 }
 
@@ -814,11 +818,11 @@ section {
 
 .about .icon-box:hover .title a,
 .about .icon-box:hover .description {
-  color: #fff;
+  color: #f8cb39;
 }
 
 .about .icon-box:hover .icon i {
-  color: #fff;
+  color: #f8cb39;
 }
 
 /*  events section */
@@ -1098,6 +1102,7 @@ li,
   text-align: center;
   box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
   padding: 20px 0 30px 0;
+  min-height: 23vh;
 }
 
 .contact .info-box i {
