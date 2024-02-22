@@ -53,10 +53,10 @@
                     <span>Scan the QR code :</span>
                     <img src="images/qr-img.png" alt="paymentqrcode">
                 </div>
-                <!-- <div class="inputBox">
+                <div class="inputBox">
                     <span>Upload document :</span>
-                    <input type="file" accept="image/*" alt="document" placeholder="upload">
-                </div> -->
+                    <input type="file" accept="image/*" alt="document" placeholder="upload" required>
+                </div>
                 <div class="inputBox">
                     <span>Transaction id :</span>
                     <input type="text" required placeholder="Transaction ID" name="tid">
@@ -72,27 +72,54 @@
 
     <script>
         const form = document.querySelector("#form")
-        const submitButton = document.querySelector("#submit")
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzsLe8HGGSJ_V49lPST8O3rC91Rte6ivbISZJI1rpv1LHYTT1VkBlDoS077tbjBbzQ/exec'
-    
-        form.addEventListener('submit', e => {
-        submitButton.disabled = true
-        e.preventDefault()
-        let requestBody = new FormData(form)
-        fetch(scriptURL, { method: 'POST', body: requestBody})
-        .then(response => {
-            console.log("success")
-            alert('Success!', response)
-            submitButton.disabled = false
-            window.location.href='index.html'
-        })
-        .catch(error => {
-            console.log("error")
-            alert('Error!', error.message)
-            submitButton.disabled = false
+    const submitButton = document.querySelector("#submit")
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzsLe8HGGSJ_V49lPST8O3rC91Rte6ivbISZJI1rpv1LHYTT1VkBlDoS077tbjBbzQ/exec'
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        // Validation functions
+        const isAlphabetic = value => /^[a-zA-Z\s]+$/.test(value);
+        const isPhoneNumber = value => /^\d{10}$/.test(value);
+        const isEmail = value => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value);
+
+        // Form data
+        const formData = new FormData(form);
+        const name = formData.get('name');
+        const pnum = formData.get('pnum');
+        const email = formData.get('email');
+
+        // Validation checks
+        if (!isAlphabetic(name)) {
+            alert('Invalid name. Please enter only alphabets and spaces.');
+            return;
         }
-        )
-        })
+
+        if (!isPhoneNumber(pnum)) {
+            alert('Invalid phone number. Please enter 10 digits.');
+            return;
+        }
+
+        if (!isEmail(email)) {
+            alert('Invalid email. Please enter a valid email address.');
+            return;
+        }
+
+        // If all validations pass, proceed with form submission
+        submitButton.disabled = true;
+        fetch(scriptURL, { method: 'POST', body: formData })
+            .then(response => {
+                console.log("success");
+                alert('Success!', response);
+                submitButton.disabled = false;
+                window.location.href = 'index.html';
+            })
+            .catch(error => {
+                console.log("error");
+                alert('Error!', error.message);
+                submitButton.disabled = false;
+            });
+    });
     </script>
 </div>
     

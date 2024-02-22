@@ -15,7 +15,7 @@
   align-items: center;
   padding:25px;
   min-height: 100vh;
-  background: linear-gradient(90deg, #db9732 60%, #d58010 40.1%);
+  background: radial-gradient( #cfd66f , #ebdb2f,#db9732);
 }
 
 .container form{

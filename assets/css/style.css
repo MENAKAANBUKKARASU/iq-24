@@ -477,7 +477,7 @@ background-color:rgba(148, 60, 60, 0.9);
   line-height: 56px;
   text-transform: uppercase;
   color: #edba14;
-  text-shadow: -1px 0 2px #2f4d5a;
+  text-shadow: -1px 0 2px #261206;
 }
 
 #hero h2 {
@@ -486,7 +486,7 @@ background-color:rgba(148, 60, 60, 0.9);
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 700;
-  text-shadow: -1px 0 2px #A9431E;
+  text-shadow: -5px 0 5px #461808;
 }
 
 
@@ -497,7 +497,7 @@ background-color:rgba(148, 60, 60, 0.9);
   line-height: 26px;
   color: #e78e45;
   margin-bottom: 15%;
-  text-shadow: -1px 0 2px #914c26be;
+  text-shadow: -1px 0 2px #5f2100be;
 }
 
 #hero #timer {
@@ -505,7 +505,7 @@ background-color:rgba(148, 60, 60, 0.9);
   font-weight: bold;
   margin-top: 50px;
   color: #d5df4a;
-  text-shadow: -1px 0 2px #b48263;
+  text-shadow: -3px 0 5px #451b00;
   font-family: "Anta", sans-serif;
       font-weight: 400;
       font-style: normal;
@@ -746,8 +746,6 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-
-
 .about .icon-box {
   padding: 30px;
     position: relative;
@@ -757,7 +755,7 @@ section {
     transition: all 0.3s ease-in-out;
     border-radius: 8px;
     z-index: 1;
-    height: 100%; /* Set a fixed height */
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -880,11 +878,17 @@ span {
   border-style: solid;
   border-color: black;
 }
+.btn1:hover{
+  color: #ff9f00;
+  background-color: white;
+}
 
 .btn1 {
-  background-color: white;
-  border-radius: 20px;
-  color: #ff9f00;
+  box-shadow: 3px 7px 4px;
+  background-color: #ff9f00;
+  border-radius: 15px;
+  color: white;
+  border-color:#ff9f00;
   font-weight: 700;
   border-width: 0px;
   width: 120px;
