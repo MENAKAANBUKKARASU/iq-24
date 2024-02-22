@@ -447,7 +447,7 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background:  url("../img/dt2.gif") top center;
   background-size: cover;
   position: relative;
@@ -1355,6 +1355,9 @@ li,
   border-top: 1px solid #6b4f38;
   text-align: center;
   padding-top: 30px;
+}
+#footer .copyright span{
+ color: #0564f3;
 }
 
 #footer .credits {
