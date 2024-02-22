@@ -2,7 +2,6 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
- 
 }
 
 a {
@@ -38,7 +37,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 998;
-  background: #67b0d1;
+  background: #e68b61;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -52,7 +51,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #86c0da;
+  background: #e3635a;
   color: #fff;
 }
 
@@ -86,7 +85,7 @@ h6 {
 }
 
 #header.header-scrolled {
-  background: #e1b72a;
+  background: #22150e;
   padding: 12px;
 }
 /* Adjust as needed */
@@ -448,16 +447,28 @@ h6 {
 #hero {
   width: 100%;
   min-height: 100vh;
-  background:  url("../img/dt2.gif") top center;
+  background:  url("../img/iq.jpg");
+ /* background-color: #070202; */
+  background-color: rgba(7, 2, 2, 0.7);
   background-size: cover;
   position: relative;
+  
+    transition: background-color 0.5s ease-in-out;
 }
-hero .overlay-layer{
+#hero::before {
+  content: "";
   position: absolute;
-width: 100%;
-height: 100%;
-background-color:rgba(148, 60, 60, 0.9); 
-} 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(7, 2, 2, 0.6); /* Set a background color with transparency */
+}
+
+/* Optional: Add hover effect */
+#hero:hover::before {
+  background-color: rgba(7, 2, 2, 0.6); /* Adjust transparency on hover */
+}
 #hero .hero-container {
   position: relative;
   bottom: 0;
@@ -471,39 +482,91 @@ background-color:rgba(148, 60, 60, 0.9);
   text-align: center;
 }
 #hero h1 {
-  margin-top: 150px;
+  margin-top: 40px;
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
   text-transform: uppercase;
-  color: #edba14;
+  color: #ff753f;
   text-shadow: -1px 0 2px #261206;
+  overflow: hidden; /* Hide overflow for typing animation */
+  white-space: nowrap; /* Keep content on a single line for typing effect */
+  animation: typing 5s steps(40, end), /* Typing effect */
+             blink-caret 0.75s step-end infinite; /* Blinking cursor */
+
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
+@keyframes blink-caret {
+  from,
+  to {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: #edba14;
+  }
+}
+
+#hero h2,
+#hero h3,
+#hero h4 {
+  transition: color 0.5s ease-in-out;
+}
 #hero h2 {
-  color: #d4d6ae;
+  color: #d7d9a8;
   margin-bottom: 50px;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 700;
-  text-shadow: -5px 0 5px #461808;
+  text-shadow: -5px 0 7px #461808;
 }
-
-
+#hero h3 {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: #edba14;
+  text-shadow: -1px 0 2px #140d09;
+}
+#hero h4 {
+  margin-top: 70px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 50px;
+  text-transform: uppercase;
+  color:#e8cf41 ;
+  text-shadow: -1px 0 2px #000000;
+}
+#hero h6 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 50px;
+  text-transform: uppercase;
+  color:#f8fbfd;
+  letter-spacing: 5px;
+  text-shadow: -1px 0 2px #000000;
+}
 #hero p {
   margin: 0 0 10px 0;
   font-size: 60px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 26px;
-  color: #e78e45;
+  color: #edba14;
   margin-bottom: 15%;
-  text-shadow: -1px 0 2px #5f2100be;
+  text-shadow: -10px 0px 20px #de5106be;
 }
 
 #hero #timer {
   font-size: 55px;
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 35px;
   color: #d5df4a;
   text-shadow: -3px 0 5px #451b00;
   font-family: "Anta", sans-serif;
@@ -550,19 +613,22 @@ background-color:rgba(148, 60, 60, 0.9);
   font-family: "Anta", sans-serif;
       font-weight: 400;
       font-style: normal;
+ transition: background-color 0.3s, color 0.3s, transform 0.5s ease-in-out; /* Add transition for transform */
+
  
 }
 
 .registration-button a {
-  color: white;
+  color: rgb(231, 132, 46);
 }
 
 .registration-button:hover {
-  background-color: #d0d7db;
+  background-color: rgb(231, 132, 46);
+  transform: scale(1.05);
 }
 
 .registration-button:active {
-  background-color: #a0aab1;
+  background-color: rgb(231, 132, 46);
 }
 
 /* Animation */
@@ -588,6 +654,7 @@ background-color:rgba(148, 60, 60, 0.9);
   color: #fff;
   width: 64px;
   height: 64px;
+  transition: padding 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 
 #hero .btn-get-started:hover {
@@ -606,7 +673,15 @@ background-color:rgba(148, 60, 60, 0.9);
     font-size: 42px;
     line-height: 30px;
   }
-
+  #hero h3 {
+    margin-top: 5px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  #hero h4 {
+    font-size: 18px;
+    line-height: 30px;
+  }
   #hero h2 {
     margin-top: 8px;
     font-size: 20px;
@@ -758,7 +833,7 @@ section {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 .about img{
   width: 120px;
@@ -779,7 +854,9 @@ section {
   transition: all 0.3s;
   z-index: -1;
 } 
-
+.about p{
+  font-size: 20px;
+}
 
 .about .icon-box:hover::before {
   background:  #f8cb39;
@@ -788,7 +865,7 @@ section {
 }
 
 .about .icon {
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .about .icon i {
@@ -827,9 +904,8 @@ section {
 .events-section {
   font-family: "Roboto";
   color: white;
-  background-image: linear-gradient(to right,#e1c86c,#FB8956,#F97BCE);
+  background: radial-gradient(#e1c86c, #FB8956, #eb5454);
 }
-
 .events-heading {
   font-size: 32px;
   font-weight: bold;
@@ -857,7 +933,7 @@ section {
 }
 
 span {
-  color: #323f4b;
+  color: #c7680a;
   font-weight: bold;
 }
 
