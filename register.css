@@ -24,7 +24,7 @@
   padding: 20px;
   width: 700px;
   background: #fff;
-  opacity: 0.90;
+  opacity: 0.93;
   box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
 }
 
@@ -83,7 +83,6 @@
 }
 
 .container form .row .col .inputBox img {
-  height: 100px;
   margin-top: 5px;
   filter: drop-shadow(0 0 1px #000);
 }
